@@ -43,7 +43,7 @@ class PromotionController extends Controller
         $promotion = Promotion::create([
             "name" => $request->name
         ]);
-      
+
         // if($inserte){
        return redirect()->route('promotion.index');
     }
@@ -66,8 +66,8 @@ class PromotionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   $edit=Promotion::findOrFail($id);
+        return view('edit',compact('edit'));
     }
 
     /**
@@ -79,7 +79,14 @@ class PromotionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $update=Promotion::findOrFail($id);
+        $update->name=$request->get('name');
+        $update->save();
+
+
+        return redirect('/promotion')->with('success');
+
     }
 
     /**
@@ -90,6 +97,9 @@ class PromotionController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $delete = Promotion::findOrFail($id);
+        $delete->delete();
+        return redirect('/promotion')->with('success');
     }
 }

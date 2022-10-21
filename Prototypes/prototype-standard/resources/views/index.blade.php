@@ -7,24 +7,42 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{{ route('promotion.create') }}">ajouter</a>
+    <div class="col-sm-12">
+
+        @if(session()->get('success'))
+          <div class="alert alert-success">
+            {{ session()->get('success') }}
+          </div>
+        @endif
+      </div>
+    <a href="{{route('promotion.create')}}">ajouter </a>
     <table>
         <thead>
             <tr>
-                <th>NAME</th>
+                <th>Nom</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($promotion as $value)
             <tr>
                 <td >{{$value ->name}}</td>
+                <td><a href="{{ route('promotion.edit', $value->id)}}" >Modifier</a></td>
+                <td>
+                    <form action="{{ route('promotion.destroy', $value->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">supprimer</button>
+                      
+                      </form>
+                </td>
+
             </tr>
             @empty
-            
+
             @endforelse
         </tbody>
     </table>
-    
+
 </body>
 </html>
 
