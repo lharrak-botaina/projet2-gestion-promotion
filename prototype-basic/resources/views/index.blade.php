@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{{ route('promotion.create')}}">ajouter </a>
     <table>
         <thead>
             <tr>
