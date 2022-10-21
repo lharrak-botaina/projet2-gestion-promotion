@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\searchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/', function () {
 });
 route::resource("promotion",PromotionController::class);
 // Route::get('/search',);
+route::get("/search",[searchController::class,'search']);
+
+
