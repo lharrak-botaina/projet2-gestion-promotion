@@ -21,5 +21,6 @@ Route::get('/', function () {
 route::resource("promotion",PromotionController::class);
 // Route::get('/search',);
 route::get("/search",[searchController::class,'search']);
+// Route::get('search',[PromotionController::class,'search']);
 
 
