@@ -16,8 +16,8 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/edit', function () {
+    return view('edit');
 });
 route::resource("promotion",PromotionController::class);
 
@@ -28,7 +28,6 @@ Route::get('/student/create/{token}',[StudentController::class,'create'])->name(
 // Route::get('/student/index',[StudentsController::class,'index']);
 // Route::get('/student/create/{id}',[StudentsController::class,'create']);
 // Route::post('/student/store',[StudentsController::class,'store']);
-
 
 
 

@@ -27636,3 +27636,20 @@ pre[class*="language-"] {
 }
 
 /*# sourceMappingURL=kit-free.css.map */
+
+
+.fa-pencil
+{
+    margin-right: 15px !important;
+
+}
+.fa-pencil:hover
+{
+    color:#d63384 ;
+
+}
+
+.bg-gradient-primary
+{
+    color: #fff;
+}

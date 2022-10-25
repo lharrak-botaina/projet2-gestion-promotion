@@ -46,8 +46,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n5">Material Kit 2</h1>
-            <p class="lead text-white mt-3">Free & Open Source Web UI Kit built over Bootstrap 5. <br /> Join over 1.6 million developers around the world. </p>
+            <h1 class="text-white pt-3 mt-n5">Tableau des promotions </h1>
+
           </div>
         </div>
       </div>
@@ -67,13 +67,14 @@
           <label class="ms-0"></label>
           <div class="input-group input-group-static">
             <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
-            <input class="form-control datepicker" placeholder="Search ... " type="text" >
+            <input class="form-control datepicker" placeholder="Search ... " type="text" id="search">
+
           </div>
         </div>
         <div class="col-lg-3 mt-lg-n2 mt-2">
-          <a href="add.html">
+          <a href="{{route('promotion.create')}}">
             <label>&nbsp;</label>
-            <button type="button"  class="btn bg-gradient-primary w-100 mb-0"><a href="{{route('promotion.create')}}">Ajouter promotion</a> </button>
+            <button type="button"  class="btn bg-gradient-primary w-100 mb-0">+ Ajouter promotion </button>
           </a>
 
 
@@ -87,13 +88,13 @@
 
 
 
-    <table id="fresh-table" class="table m-auto">
-      <thead>
+    <table id="fresh-table" class="table ">
+      <thead >
 
-        <th data-field="name" data-sortable="true">Nom</th>
+        <th   data-field="name" data-sortable="true">Nom</th>
 
 
-        <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+        <th class="d-flex  justify-content-end action " data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
       </thead>
       <tbody id="tbody">
         @forelse ($promotion as $value)
@@ -101,15 +102,18 @@
           {{-- <td>{{$value ->id}}</td> --}}
           <td>{{$value ->name}}</td>
 
-          <td class="d-flex">
-            <button class="btn bg-gradient-primary w-30 mb-0"><i class="fa fa-pencil" aria-hidden="true"> <a href="{{ route('promotion.edit', $value->token)}}" >Modifier</a></i></button>
+          <td class="">
+            <div class="d-flex flex-row justify-content-end ">
+              <a href="{{ route('promotion.edit', $value->token)}}" ><i class="fa fa-pencil " aria-hidden="true"></i></a>
 
-            <form action="{{ route('promotion.destroy', $value->token)}}" method="post">
-                @csrf
-                @method('DELETE')
-                {{-- <button class="btn bg-gradient-secondary w-50  mb-0" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button> --}}
-                <button class="btn bg-gradient-primary w-30 mb-0"><i class="fa fa-pencil" aria-hidden="true"> <a href="{{ route('promotion.edit', $value->token)}}" >Modifier</a></i></button>
-              </form>
+                <form action="{{ route('promotion.destroy', $value->token)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    {{-- <button class="btn bg-gradient-secondary w-50  mb-0" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button> --}}
+                  <button ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </form>
+            </div>
+
 
 
           </td>
@@ -123,7 +127,7 @@
     </table>
 
 
-        <div class="row justify-space-between py-2">
+        {{-- <div class="row justify-space-between py-2">
           <div class="col-lg-4 mx-auto">
             <ul class="pagination pagination-primary m-4">
               <li class="page-item">
@@ -145,7 +149,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> --}}
 
   </div>
 
