@@ -13,7 +13,7 @@
             <input type="text" name="first_name" placeholder="first Name">
             <input type="text" name="last_name" placeholder="last Name">
             <input type="email" name="email" placeholder="email">
-           
+           <input type="hidden" name="promotion_token" value="{{$token}}" id="">
             <button type="submit">ajouter</button>
         </div>
 

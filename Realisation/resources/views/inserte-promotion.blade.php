@@ -12,10 +12,10 @@
                         <div class="card-header">Ajouter promotion</div>
                         <div class="card-body">
 
-                            
+
                                  <form action="{{route('promotion.store')}}" enctype="multipart/form-data"
-                                method="POST" novalidate="novalidate"> 
-                            
+                                method="POST" novalidate="novalidate">
+
                                 @csrf
                                     <div class="row">
 
@@ -36,11 +36,11 @@
 
 
 
-                                       
+
 
                                     </div>
                                     <div class="col-6">
-                                        <p> 
+                                        <p>
                                           .
                                         </p>
                                     </div>
@@ -51,7 +51,7 @@
                                     </div>
                         </div>
                         </form>
-                       
+
                     </div>
                 </div>
                 <!-- fin -->

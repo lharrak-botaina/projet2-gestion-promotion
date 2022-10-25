@@ -22,8 +22,8 @@ Route::get('/', function () {
 route::resource("promotion",PromotionController::class);
 
 // Route::get('search',[PromotionController::class,'search']);
-route::resource("student",StudentController::class);
-// Route::get('/student/create/{id}',[StudentsController::class,'create']);
+route::resource("student",StudentController::class)->except('create');
+Route::get('/student/create/{token}',[StudentController::class,'create'])->name('student.create');
 
 // Route::get('/student/index',[StudentsController::class,'index']);
 // Route::get('/student/create/{id}',[StudentsController::class,'create']);

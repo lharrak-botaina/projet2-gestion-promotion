@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index()
     {
         $students =Student::all();
-        return view('studentFolder.index')->with([
+        return view('promotion.edit')->with([
             "students" => $students
         ]);
 
@@ -26,9 +26,10 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($token)
     {
-        return view("studentFolder.create");
+
+        return view("studentFolder.create",compact('token'));
 
     }
 
@@ -46,9 +47,9 @@ class StudentController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-
+            'promotion_token'=>$request->promotion_token,
         ]);
-        return redirect()->route('student.index')->with('success','Student created successfully');
+        return redirect()->route('promotion.edit',[$request->promotion_token])->with('success','Student created successfully');
 
 
     }
@@ -87,12 +88,13 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $update=Student::findOrFail($id);
+
         $update->first_name=$request->get('first_name');
         $update->last_name=$request->get('last_name');
         $update->email=$request->get('email');
         $update->save();
 
-        return redirect('/student')->with('success','Student updated successfully');
+        return redirect()->route('promotion.edit',$update->promotion_token)->with('success','Student updated successfully');
     }
 
     /**
@@ -105,6 +107,6 @@ class StudentController extends Controller
     {
         $delete =Student::findOrFail($id);
         $delete->delete();
-        return redirect('/student')->with('success','Student deleted successfully');
+        return redirect()->route('promotion.edit',$delete->promotion_token)->with('success','Student deleted successfully');
     }
 }

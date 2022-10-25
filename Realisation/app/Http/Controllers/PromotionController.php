@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Promotion;
+use App\Models\Student;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PromotionController extends Controller
@@ -33,7 +35,7 @@ class PromotionController extends Controller
 
 
 
-   
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,7 +47,8 @@ class PromotionController extends Controller
     {
         // $name = $request->input('name');
         $promotion = Promotion::create([
-            "name" => $request->name
+            "name" => $request->name,
+            'token'=>Str::random()
         ]);
 
         // if($inserte){
@@ -69,9 +72,14 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {   $edit=Promotion::findOrFail($id);
-        return view('edit',compact('edit'));
+    public function edit($token)
+    {
+        $promotion =Promotion::where('token',$token)->firstOrFail();
+        $studentPromotion = Student::where('promotion_token',$promotion->token)->get();
+        return view('edit',[
+           'promotion'=>$promotion,
+            'studentPromotion'=>$studentPromotion
+        ]);
     }
 
     /**
@@ -81,10 +89,10 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $token)
     {
 
-        $update=Promotion::findOrFail($id);
+        $update=Promotion::where('token',$token)->firstOrFail();
         $update->name=$request->get('name');
         $update->save();
 
@@ -99,10 +107,10 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($token)
     {
 
-        $delete = Promotion::findOrFail($id);
+        $delete = Promotion::firstOrFail();
         $delete->delete();
         return redirect('/promotion')->with('success');
     }

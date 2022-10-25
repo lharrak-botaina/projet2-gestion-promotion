@@ -10,9 +10,12 @@ class Student extends Model
     use HasFactory;
     protected $table ="students";
     protected  $fillable=  [
-        'promotion_id',
+        'promotion_token',
         'first_name',
         'last_name',
         'email'
     ];
+    public function students(){
+        $this->belongsTo(Promotion::class);
+    }
 }
