@@ -236,7 +236,7 @@
         $token=$('#token').val();
          $.ajax({
              type : 'get',
-             url : '/search',
+             url : '/searchStudent',
 
              data:{'key':$value, 'token':$token},
              success:function(data){

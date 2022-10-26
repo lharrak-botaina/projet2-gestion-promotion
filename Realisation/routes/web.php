@@ -25,7 +25,7 @@ route::resource("promotion",PromotionController::class);
 route::resource("student",StudentController::class)->except('create');
 Route::get('/student/create/{token}',[StudentController::class,'create'])->name('student.create');
 route::get("/search",[searchController::class,'search']);
-route::get("/search",[searchController::class,'searchStudent']);
+route::get("/searchStudent",[searchController::class,'searchStudent']);
 
 // Route::get('/student/index',[StudentsController::class,'index']);
 // Route::get('/student/create/{id}',[StudentsController::class,'create']);
