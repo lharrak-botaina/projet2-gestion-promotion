@@ -87,7 +87,7 @@
     <div class="container">
       <div class="row border-radius-md d-flex  pb-4 p-3 mx-sm-0 mx-1 ">
 
-
+        <input type="hidden" id="token" value="{{$promotion->token}}">
         <form action="{{ route('promotion.update',$promotion->token) }}" role="form" id="contact-form"  method="post" autocomplete="off">
             @csrf
             @method('PUT')
@@ -138,9 +138,16 @@
 <section>
     <div class="container p">
       <div class="row">
-        <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+        <div class="col-lg-7 mx-auto d-flex justify-content-end pb-5">
           {{-- <h3 class="text-center">Modifier le formulaire </h3> --}}
+          <div class="col-lg-3 mt-lg-n2 mt-2">
+            <label class="ms-0"></label>
+            <div class="input-group input-group-static">
+              <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input class="form-control datepicker student-search" placeholder="Search ... " type="text" id="search">
 
+            </div>
+          </div>
 
         </div>
       </div>
@@ -148,7 +155,8 @@
   </section>
   <section>
 
-    <table id="fresh-table" class="table ">
+
+    <table  class="table ">
         <thead >
 
           <th   data-field="name" data-sortable="true">Nom</th>
@@ -221,3 +229,41 @@
 
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('#search').on('keyup',function(){
+        $value=$(this).val();
+        $token=$('#token').val();
+         $.ajax({
+             type : 'get',
+             url : '/search',
+
+             data:{'key':$value, 'token':$token},
+             success:function(data){
+                 $('#tbody').html(data);
+             }
+         });
+     })
+</script>
+
+
+
+
+
+
+
+<script>
+
+
+//   $('#search').on('keyup',function(){
+//       $value=$(this).val();
+//       $token=$('#token').val();
+//           $.ajax({
+//           type : 'get',
+//           url : '/student/searchStudent',
+//           data:{'key':$value, 'token':$token},
+//           success:function(data){
+//           $('#div').html(data);
+//       }})
+//   })
+// </script>

@@ -26963,8 +26963,11 @@ span.flatpickr-weekday {
 
 .datepicker.flatpickr-input {
   background-color: #fff;
-}
 
+}
+.student-search{
+    font-size: 20px !important;
+}
 .flatpickr-calendar.open {
   margin-left: 0px;
   margin-top: 4px;
