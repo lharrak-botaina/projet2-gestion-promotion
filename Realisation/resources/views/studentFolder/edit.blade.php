@@ -1,26 +1,143 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}">
+  <!-- <link rel="icon" type="image/png" href="../assets/img/favicon.png"> -->
+  <title>
+    Material Kit 2 by Creative Tim
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="{{asset('assets/css/nucleo-icons.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{{asset('assets/css/material-kit.css?v=3.0.4')}}" rel="stylesheet" />
 </head>
-<body>
-    <form action="{{ route("student.update",$edit->id) }}" method="POST">
-        @method('PUT')
-                                    @csrf
 
-        <div class="container">
-            <input type="text" name="first_name" placeholder="first Name" value="{{ $edit->first_name }}">
-            <input type="text" name="last_name" placeholder="last Name" value="{{ $edit->last_name }}">
-            <input type="email" name="email" placeholder="email"value="{{ $edit->email}}">
+<body class="presentation-page bg-gray-200">
+  <!-- Navbar -->
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
 
-            <button type="submit">update</button>
+
+              <img class="logo" src="{{asset('assets/img/B.png')}}" alt="">
+
+
+
+
+        </nav>
+        <!-- End Navbar -->
+      </div>
+    </div>
+  </div>
+  <header class="header-2">
+    <div class="page-header min-vh-75 relative" style="background-image: url('{{asset('assets/img/bg2.png')}}')">
+      <span class="mask bg-gradient-primary opacity-4"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">Ajouter apprenant</h1>
+            {{-- <p class="lead text-white mt-3">Free & Open Source Web UI Kit built over Bootstrap 5. <br /> Join over 1.6 million developers around the world. </p> --}}
+          </div>
         </div>
+      </div>
+    </div>
+  </header>
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+    <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+<header>
+
+
+  <div class="card card-body  shadow-blur mx-3 mx-md-4 mt-n6">
+    <div class="container">
+      <div class="row border-radius-md justify-content-start pb-4 p-3 mx-sm-0 mx-1 ">
 
 
 
-    </form>
+        <div class="col-lg-3 mt-lg-n2 mt-2">
+          <label>&nbsp;</label>
+          <a href="{{ route('promotion.index') }}">
+            <button type="button"  class="btn bg-gradient-primary w-100 mb-0"><i  class="fa fa-arrow-left" aria-hidden="true"></i>
+                Retour</button>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+          <h3 class="text-center">Remplir le formulaire </h3>
+
+          <form role="form" id="contact-form" action="{{ route("student.update",$edit->id) }}" method="POST"  autocomplete="off">
+            @method('PUT')
+            @csrf
+
+
+            <div class="card-body">
+              <div class="row">
+                <div class="mb-4">
+                  <div class="input-group input-group-dynamic mb-4">
+
+                    <input name="last_name" placeholder="last Name" class="form-control"  type="text"  value="{{ $edit->last_name }}">
+                  </div>
+                </div>
+                <div class="mb-4">
+                    <div class="input-group input-group-dynamic mb-4">
+
+                      <input name="first_name" placeholder="first Name" class="form-control"  type="text" value="{{ $edit->first_name }}"  >
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <div class="input-group input-group-dynamic mb-4">
+
+                      <input name="email" placeholder="email" class="form-control"  type="email" value="{{ $edit->email}}" >
+                    </div>
+                  </div>
+
+              </div>
+
+
+
+
+                <div class="col-md-8 mt-7 ms-7">
+                  <button type="submit" class="btn bg-gradient-primary w-100 ">Modifier</button>
+                </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  </div>
+  <footer class="footer pt-5 mt-5">
+    <div class="container">
+
+    </div>
+  </footer>
+
+
+
 </body>
+
 </html>

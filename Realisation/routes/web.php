@@ -16,9 +16,9 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/edit', function () {
-    return view('edit');
-});
+// Route::get('/edit', function () {
+//     return view('edit');
+// });
 route::resource("promotion",PromotionController::class);
 
 // Route::get('search',[PromotionController::class,'search']);

@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index()
     {
         $students =Student::all();
-        return view('promotion.edit')->with([
+        return view('edit')->with([
             "students" => $students
         ]);
 
@@ -41,15 +41,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $students = Student::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'promotion_token'=>$request->promotion_token,
         ]);
-        return redirect()->route('promotion.edit',[$request->promotion_token])->with('success','Student created successfully');
+        return redirect()->route('promotion.edit', $request->promotion_token)->with('success','Student created successfully');
 
 
     }

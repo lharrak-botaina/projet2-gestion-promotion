@@ -2473,6 +2473,7 @@ progress {
   border-color: var(--bs-table-border-color);
 }
 
+
 .table> :not(caption)>*>* {
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
@@ -22051,6 +22052,8 @@ body.dark-version {
 .input-group.input-group-static .form-control:focus {
   background-image: linear-gradient(0deg, #e91e63 2px, rgba(156, 39, 176, 0) 0), linear-gradient(0deg, #d2d2d2 1px, rgba(209, 209, 209, 0) 0);
   border-radius: 0 !important;
+  text-align: center;
+  font-size: 25px;
 }
 
 .input-group.input-group-dynamic .form-control:focus,
@@ -27652,4 +27655,23 @@ pre[class*="language-"] {
 .bg-gradient-primary
 {
     color: #fff;
+}
+.name-input{
+    margin-left: 200px !important;
+
+}
+.lien-btn{
+    width: 50% !important;
+}
+.lien2{
+    text-align: end;
+}
+#trash-btn{
+    background: unset;
+    border: unset;
+}
+.logo{
+    width: 150px;
+    height: 90px;
+
 }

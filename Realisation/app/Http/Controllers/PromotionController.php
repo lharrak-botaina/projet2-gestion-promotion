@@ -73,6 +73,7 @@ class PromotionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($token)
+
     {
         $promotion =Promotion::where('token',$token)->firstOrFail();
         $studentPromotion = Student::where('promotion_token',$promotion->token)->get();
@@ -92,8 +93,9 @@ class PromotionController extends Controller
     public function update(Request $request, $token)
     {
 
+
         $update=Promotion::where('token',$token)->firstOrFail();
-        $update->name=$request->get('name');
+        $update->name=$request->name;
         $update->save();
 
 

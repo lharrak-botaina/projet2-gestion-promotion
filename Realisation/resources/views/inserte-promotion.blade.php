@@ -29,14 +29,14 @@
     <div class="row">
       <div class="col-12">
         <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
-          <div class="container-fluid px-0">
-            <a class="navbar-brand font-weight-bolder ms-sm-3" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-              Material Kit 2
-            </a>
 
 
-          </div>
-        </nav>
+            <img class="logo" src="{{asset('assets/img/B.png')}}" alt="">
+
+
+
+
+      </nav>
         <!-- End Navbar -->
       </div>
     </div>
